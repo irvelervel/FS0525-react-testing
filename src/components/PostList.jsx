@@ -17,7 +17,7 @@ const PostList = () => {
         }
       })
       .then((arrayOfPosts) => {
-        console.log(arrayOfPosts)
+        // console.log(arrayOfPosts)
         setPostList(arrayOfPosts.slice(0, 10)) // i primi 10 post
       })
       .catch((err) => {
@@ -47,7 +47,9 @@ const PostList = () => {
               .filter((p) => p.body.includes(search.toLowerCase()))
               .map((post) => {
                 return (
-                  <ListGroup.Item key={post.id}>{post.body}</ListGroup.Item>
+                  <ListGroup.Item key={post.id} data-testid="elemento-lista">
+                    {post.body}
+                  </ListGroup.Item>
                 )
               })}
           </ListGroup>
